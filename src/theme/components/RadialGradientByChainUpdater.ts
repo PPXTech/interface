@@ -96,6 +96,15 @@ export default function RadialGradientByChainUpdater(): null {
         backgroundRadialGradientElement.style.background = darkMode ? bscDarkGradient : bscLightGradient
         break
       }
+      case SupportedChainId.CORE_TEST: {
+        setBackground(backgroundResetStyles)
+        const coreLightGradient =
+          'radial-gradient(100% 100% at 50% 0%, rgba(16 , 16, 16, 0.1) 0%, rgba(16, 16, 16, 0.08) 50%, rgba(16, 16, 16, 0) 100%), #0D0E0E'
+        const coreDarkGradient =
+          'radial-gradient(100% 100% at 50% 0%, rgba(16 , 16, 16, 0.1) 0%, rgba(16, 16, 16, 0.08) 50%, rgba(16, 16, 16, 0) 100%), #0D0E0E'
+        backgroundRadialGradientElement.style.background = darkMode ? coreDarkGradient : coreLightGradient
+        break
+      }
       default: {
         setBackground(initialStyles)
         const defaultLightGradient =

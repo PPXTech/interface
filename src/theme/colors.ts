@@ -3,7 +3,9 @@ import { opacify } from './utils'
 
 export const colors = {
   white: '#FFFFFF',
+  white50: '#D9D9D9',
   black: '#000000',
+  black50: '#101010',
   gray50: '#F5F6FC',
   gray100: '#E8ECFB',
   gray150: '#D2D9EE',
@@ -82,6 +84,7 @@ export const colors = {
   blue800: '#0B193F',
   blue900: '#040E34',
   blueVibrant: '#587BFF',
+  orange400: '#EB6C22',
   // TODO: add magenta 50-900
   magenta300: '#FD82FF',
   magentaVibrant: '#FC72FF',
@@ -135,21 +138,23 @@ export const darkTheme = {
 
   userThemeColor: colors.magentaVibrant,
 
-  background: colors.gray800,
+  background: colors.black50,
   backgroundBackdrop: colors.gray950,
   backgroundSurface: colors.gray900,
-  backgroundModule: colors.gray800,
-  backgroundInteractive: colors.gray700,
+  backgroundModule: opacify(25, colors.white),
+  backgroundInteractive: opacify(25, colors.white50),
   backgroundFloating: opacify(12, colors.black),
   backgroundOutline: opacify(24, colors.gray300),
   backgroundScrim: opacify(72, colors.gray900),
   backgroundScrolledSurface: opacify(72, colors.gray900),
 
-  textPrimary: colors.white,
-  textSecondary: colors.gray300,
-  textTertiary: colors.gray500,
+  iconColor: opacify(25, colors.white),
 
-  accentAction: colors.blue400,
+  textPrimary: colors.white,
+  textSecondary: opacify(50, colors.white),
+  textTertiary: opacify(25, colors.white),
+
+  accentAction: colors.orange400,
   accentActive: colors.blue400,
   accentSuccess: colors.green200,
   accentWarning: colors.gold200,
@@ -175,8 +180,8 @@ export const darkTheme = {
 
   networkDefaultShadow: `0px 40px 120px ${opacify(16, colors.blue400)}`,
 
-  stateOverlayHover: opacify(8, colors.gray300),
-  stateOverlayPressed: opacify(24, colors.gray200),
+  stateOverlayHover: opacify(40, colors.white),
+  stateOverlayPressed: opacify(80, colors.white),
 
   searchBackground: `rgba(255,255,255,0.07)`,
   searchOutline: `rgba(255,255,255,0.07)`,
@@ -196,6 +201,8 @@ export const lightTheme: Theme = {
   backgroundOutline: colors.gray150,
   backgroundScrim: opacify(60, colors.gray900),
   backgroundScrolledSurface: opacify(72, colors.white),
+
+  iconColor: colors.gray400,
 
   textPrimary: colors.gray900,
   textSecondary: colors.gray400,

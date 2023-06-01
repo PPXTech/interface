@@ -75,10 +75,12 @@ const ArrowContainer = styled.div`
   height: 100%;
 `
 
+/**
+ * border-radius: 12px;
+ * background-color: ${({ theme }) => theme.backgroundModule};
+ */
 const SwapSection = styled.div`
   position: relative;
-  background-color: ${({ theme }) => theme.backgroundModule};
-  border-radius: 12px;
   padding: 16px;
   color: ${({ theme }) => theme.textSecondary};
   font-size: 14px;
@@ -117,6 +119,7 @@ const OutputSwapSection = styled(SwapSection)<{ showDetailsDropdown: boolean }>`
 `
 
 const DetailsSwapSection = styled(SwapSection)`
+  margin-top: 3px;
   padding: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -633,7 +636,7 @@ export function Swap({
               color={theme.textPrimary}
             >
               <ArrowDown
-                size="16"
+                size="24"
                 color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.textPrimary : theme.textTertiary}
               />
             </ArrowContainer>

@@ -24,23 +24,26 @@ export const PageWrapper = styled.div`
 `
 
 // Mostly copied from `AppBody` but it was getting too hard to maintain backwards compatibility.
+/**
+ * background: ${({ theme }) => theme.backgroundSurface};
+ * border-radius: 16px;
+ * border: 1px solid ${({ theme }) => theme.backgroundOutline};
+ * &:hover {
+ *  border: 1px solid ${({ theme }) => theme.backgroundOutline};
+ * }
+ */
 export const SwapWrapper = styled.main<{ chainId: number | undefined }>`
   position: relative;
-  background: ${({ theme }) => theme.backgroundSurface};
-  border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.backgroundOutline};
   padding: 8px;
   box-shadow: ${({ chainId }) => !!chainId && chainId === SupportedChainId.BNB && '0px 40px 120px 0px #f0b90b29'};
   z-index: ${Z_INDEX.deprecated_content};
   transition: transform 250ms ease;
-
-  &:hover {
-    border: 1px solid ${({ theme }) => theme.backgroundOutline};
-  }
 `
 
+/**
+ * border-radius: 12px;
+ */
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
-  border-radius: 12px;
   height: 40px;
   width: 40px;
   position: relative;
@@ -48,9 +51,9 @@ export const ArrowWrapper = styled.div<{ clickable: boolean }>`
   margin-bottom: -18px;
   margin-left: auto;
   margin-right: auto;
-  background-color: ${({ theme }) => theme.backgroundInteractive};
-  border: 4px solid;
-  border-color: ${({ theme }) => theme.backgroundSurface};
+  background-color: ${({ theme }) => theme.background};
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.backgroundModule};
 
   z-index: 2;
   ${({ clickable }) =>
@@ -58,7 +61,7 @@ export const ArrowWrapper = styled.div<{ clickable: boolean }>`
       ? css`
           :hover {
             cursor: pointer;
-            opacity: 0.8;
+            scale: 1.05;
           }
         `
       : null}

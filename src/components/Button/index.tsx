@@ -34,7 +34,7 @@ export const BaseButton = styled(RebassButton)<BaseButtonProps>`
   width: ${({ width }) => width ?? '100%'};
   font-weight: 500;
   text-align: center;
-  border-radius: ${({ $borderRadius }) => $borderRadius ?? '20px'};
+  border-radius: ${({ $borderRadius }) => $borderRadius ?? '0px'};
   outline: none;
   border: 1px solid transparent;
   color: ${({ theme }) => theme.textPrimary};
@@ -98,8 +98,6 @@ export const SmallButtonPrimary = styled(ButtonPrimary)`
   width: auto;
   font-size: 16px;
   padding: ${({ padding }) => padding ?? '8px 12px'};
-
-  border-radius: 12px;
 `
 
 const BaseButtonLight = styled(BaseButton)`
@@ -163,7 +161,6 @@ export const ButtonSecondary = styled(BaseButton)`
   color: ${({ theme }) => theme.accentAction};
   background-color: transparent;
   font-size: 16px;
-  border-radius: 12px;
   padding: ${({ padding }) => (padding ? padding : '10px')};
 
   &:focus {
@@ -474,7 +471,6 @@ function pickThemeButtonTextColor({ theme, emphasis }: { theme: DefaultTheme; em
 const BaseThemeButton = styled.button<BaseThemeButtonProps>`
   align-items: center;
   background-color: ${pickThemeButtonBackgroundColor};
-  border-radius: 16px;
   border: 0;
   color: ${pickThemeButtonTextColor};
   cursor: pointer;
