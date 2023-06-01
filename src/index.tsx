@@ -1,8 +1,8 @@
 import '@reach/dialog/styles.css'
 import 'inter-ui'
 import 'polyfills'
-import 'tracing'
 
+// import 'tracing'
 import { ApolloProvider } from '@apollo/client'
 import { FeatureFlagsProvider } from 'featureFlags'
 import { apolloClient } from 'graphql/data/apollo'
