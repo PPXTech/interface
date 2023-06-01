@@ -57,7 +57,8 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = Object.values(Support
 ) as SupportedChainId[]
 
 export function isSupportedChain(chainId: number | null | undefined): chainId is SupportedChainId {
-  return !!chainId && !!SupportedChainId[chainId]
+  return !!chainId && chainId === SupportedChainId.CORE_TEST
+  // return !!chainId && !!SupportedChainId[chainId]
 }
 
 export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [

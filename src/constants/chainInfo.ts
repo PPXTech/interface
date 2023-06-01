@@ -64,6 +64,7 @@ type ChainInfoMap = { readonly [chainId: number]: L1ChainInfo | L2ChainInfo } & 
 const CHAIN_INFO: ChainInfoMap = {
   [SupportedChainId.CORE_TEST]: {
     networkType: NetworkType.L1,
+    bridge: 'https://bridge.test.btcs.network/bridge',
     docs: 'https://docs.coredao.org/',
     explorer: 'https://scan.test.btcs.network/',
     infoLink: '',

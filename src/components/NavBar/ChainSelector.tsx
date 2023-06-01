@@ -45,7 +45,7 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
   useOnClickOutside(ref, () => setIsOpen(false), [modalRef])
 
-  const info = chainId ? getChainInfo(chainId) : undefined
+  const info = chainId && chainId === SupportedChainId.CORE_TEST ? getChainInfo(chainId) : undefined
 
   const selectChain = useSelectChain()
   useSyncChainQuery()
