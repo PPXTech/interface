@@ -9,7 +9,7 @@ import { ClickableStyle, ThemedText } from 'theme'
 
 import { GitVersionRow } from './GitVersionRow'
 import { SlideOutMenu } from './SlideOutMenu'
-import { SmallBalanceToggle } from './SmallBalanceToggle'
+// import { SmallBalanceToggle } from './SmallBalanceToggle'
 
 const InternalLinkMenuItem = styled(Link)`
   ${ClickableStyle}
@@ -63,9 +63,9 @@ export default function SettingsMenu({ onClose }: { onClose: () => void }) {
       {/* <ThemeToggleContainer>
         <ThemeToggle />
       </ThemeToggleContainer> */}
-      <BalanceToggleContainer>
+      {/* <BalanceToggleContainer>
         <SmallBalanceToggle />
-      </BalanceToggleContainer>
+      </BalanceToggleContainer> */}
 
       <SectionTitle data-testid="wallet-header">
         <Trans>Language</Trans>
