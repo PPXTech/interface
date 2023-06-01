@@ -17,7 +17,6 @@ import { PageTabs } from '../components/NavBar'
 import NavBar from '../components/NavBar'
 import Polling from '../components/Polling'
 import Popups from '../components/Popups'
-import DarkModeQueryParamReader from '../theme/components/DarkModeQueryParamReader'
 import AddLiquidity from './AddLiquidity'
 import { RedirectDuplicateTokenIds } from './AddLiquidity/redirects'
 import { RedirectDuplicateTokenIdsV2 } from './AddLiquidityV2/redirects'
@@ -210,7 +209,7 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <DarkModeQueryParamReader />
+      {/* <DarkModeQueryParamReader /> */}
       <ApeModeQueryParamReader />
       {/** <Trace page={currentPage}> 
       <StatsigProvider
