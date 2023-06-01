@@ -33,9 +33,12 @@ const TitleText = styled.div`
   line-height: 24px;
   margin: 0px 12px;
 `
+
+/**
+ * border-radius: 12px;
+ */
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.backgroundSurface};
-  border-radius: 12px;
   border: 1px solid ${({ theme }) => theme.backgroundOutline};
   bottom: 60px;
   display: none;
