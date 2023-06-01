@@ -1,17 +1,12 @@
 import { Trans } from '@lingui/macro'
 import { sendAnalyticsEvent, TraceEvent } from '@uniswap/analytics'
 import { BrowserEvent, InterfaceElementName, InterfaceEventName, SharedEventName } from '@uniswap/analytics-events'
-import { formatNumber, NumberType } from '@uniswap/conedison/format'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { ButtonEmphasis, ButtonSize, LoadingButtonSpinner, ThemeButton } from 'components/Button'
 import Column from 'components/Column'
-import { AutoRow } from 'components/Row'
-import { LoadingBubble } from 'components/Tokens/loading'
-import { formatDelta } from 'components/Tokens/TokenDetails/PriceChart'
 import Tooltip from 'components/Tooltip'
 import { useGetConnection } from 'connection'
-import { usePortfolioBalancesQuery } from 'graphql/data/__generated__/types-and-hooks'
 import { useAtomValue } from 'jotai/utils'
 import { useProfilePageState, useSellAsset, useWalletCollections } from 'nft/hooks'
 import { useIsNftClaimAvailable } from 'nft/hooks/useIsNftClaimAvailable'
@@ -225,14 +220,14 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
   const openFiatOnrampUnavailableTooltip = useCallback(() => setShow(true), [setShow])
   const closeFiatOnrampUnavailableTooltip = useCallback(() => setShow(false), [setShow])
 
-  const { data: portfolioBalances } = usePortfolioBalancesQuery({
-    variables: { ownerAddress: account ?? '' },
-    fetchPolicy: 'cache-only', // PrefetchBalancesWrapper handles balance fetching/staleness; this component only reads from cache
-  })
-  const portfolio = portfolioBalances?.portfolios?.[0]
-  const totalBalance = portfolio?.tokensTotalDenominatedValue?.value
-  const absoluteChange = portfolio?.tokensTotalDenominatedValueChange?.absolute?.value
-  const percentChange = portfolio?.tokensTotalDenominatedValueChange?.percentage?.value
+  // const { data: portfolioBalances } = usePortfolioBalancesQuery({
+  //   variables: { ownerAddress: account ?? '' },
+  //   fetchPolicy: 'cache-only', // PrefetchBalancesWrapper handles balance fetching/staleness; this component only reads from cache
+  // })
+  // const portfolio = portfolioBalances?.portfolios?.[0]
+  // const totalBalance = portfolio?.tokensTotalDenominatedValue?.value
+  // const absoluteChange = portfolio?.tokensTotalDenominatedValueChange?.absolute?.value
+  // const percentChange = portfolio?.tokensTotalDenominatedValueChange?.percentage?.value
 
   return (
     <AuthenticatedHeaderWrapper>
@@ -265,7 +260,7 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
         </IconContainer>
       </HeaderWrapper>
       <PortfolioDrawerContainer>
-        {totalBalance !== undefined ? (
+        {/* {totalBalance !== undefined ? (
           <FadeInColumn gap="xs">
             <ThemedText.HeadlineLarge fontWeight={500}>
               {formatNumber(totalBalance, NumberType.PortfolioBalance)}
@@ -288,7 +283,7 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
             <LoadingBubble height="44px" width="170px" />
             <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" />
           </Column>
-        )}
+        )} */}
         {/* {!shouldDisableNFTRoutes && (
           <HeaderButton
             data-testid="nft-view-self-nfts"

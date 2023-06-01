@@ -13,7 +13,6 @@ import { ThemedText } from 'theme'
 import { ActivityTab } from './Activity'
 import Pools from './Pools'
 import { PortfolioRowWrapper } from './PortfolioRow'
-import Tokens from './Tokens'
 
 const Wrapper = styled(Column)`
   margin-top: 28px;
@@ -59,12 +58,12 @@ interface Page {
 }
 
 const Pages: Array<Page> = [
-  {
-    title: <Trans>Tokens</Trans>,
-    key: 'tokens',
-    component: Tokens,
-    loggingElementName: InterfaceElementName.MINI_PORTFOLIO_TOKENS_TAB,
-  },
+  // {
+  //   title: <Trans>Tokens</Trans>,
+  //   key: 'tokens',
+  //   component: Tokens,
+  //   loggingElementName: InterfaceElementName.MINI_PORTFOLIO_TOKENS_TAB,
+  // },
   // {
   //   title: <Trans>NFTs</Trans>,
   //   key: 'nfts',

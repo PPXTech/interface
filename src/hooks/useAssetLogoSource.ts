@@ -39,11 +39,12 @@ function getInitialUrl(address?: string | null, chainId?: number | null, isNativ
 
   const networkName = chainId ? chainIdToNetworkName(chainId) : 'ethereum'
   const checksummedAddress = isAddress(address)
-  if (checksummedAddress) {
-    return `https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/${networkName}/assets/${checksummedAddress}/logo.png`
-  } else {
-    return undefined
-  }
+  return undefined
+  // if (checksummedAddress) {
+  //   return `https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/${networkName}/assets/${checksummedAddress}/logo.png`
+  // } else {
+  //   return undefined
+  // }
 }
 
 export default function useAssetLogoSource(
