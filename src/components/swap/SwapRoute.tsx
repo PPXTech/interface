@@ -102,7 +102,7 @@ export default memo(function SwapRoute({ trade, syncing, fixedOpen = false, ...r
                   <div style={{ width: '250px', height: '15px' }} />
                 </LoadingRows>
               ) : (
-                <ThemedText.DeprecatedMain fontSize={12} width={400} margin={0}>
+                <ThemedText.DeprecatedMain fontSize={12} width={400} margin={0} color="white">
                   {trade?.gasUseEstimateUSD && chainId && SUPPORTED_GAS_ESTIMATE_CHAIN_IDS.includes(chainId) ? (
                     <Trans>Best price route costs ~{formattedGasPriceString} in gas. </Trans>
                   ) : null}{' '}

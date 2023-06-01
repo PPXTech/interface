@@ -166,7 +166,7 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
 `
 
 export const ResponsiveTooltipContainer = styled(TooltipContainer)<{ origin?: string; width?: string }>`
-  background-color: ${({ theme }) => theme.backgroundSurface};
+  background-color: ${({ theme }) => theme.background};
   border: 1px solid ${({ theme }) => theme.backgroundInteractive};
   padding: 1rem;
   width: ${({ width }) => width ?? 'auto'};
