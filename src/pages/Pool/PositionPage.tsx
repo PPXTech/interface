@@ -68,7 +68,7 @@ const PositionPageButtonPrimary = styled(ButtonPrimary)`
   height: 40px;
   font-size: 16px;
   line-height: 20px;
-  border-radius: 12px;
+  border-radius: 0;
 `
 
 const PageWrapper = styled.div`

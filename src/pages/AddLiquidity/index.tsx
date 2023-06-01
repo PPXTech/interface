@@ -835,7 +835,7 @@ function AddLiquidity() {
                             />
                           </OutlineCard>
                           <RowBetween
-                            style={{ backgroundColor: theme.deprecated_bg1, padding: '12px', borderRadius: '0' }}
+                            style={{ backgroundColor: theme.backgroundLight, padding: '12px', borderRadius: '0' }}
                           >
                             <ThemedText.DeprecatedMain>
                               <Trans>Current {baseCurrency?.symbol} Price:</Trans>
