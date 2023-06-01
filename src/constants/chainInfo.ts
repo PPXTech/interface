@@ -1,8 +1,8 @@
 import bnbCircleLogoUrl from 'assets/images/bnbCircle.svg'
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
-import coreLogoUrl from 'assets/images/core-logo.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
+import coreChainLogoUrl from 'assets/images/satoshi-logo-light-circle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
 import bnbSquareLogoUrl from 'assets/svg/bnb_square_logo.svg'
 import bnbLogo from 'assets/svg/bnb-logo.svg'
@@ -68,7 +68,7 @@ const CHAIN_INFO: ChainInfoMap = {
     explorer: 'https://scan.test.btcs.network/',
     infoLink: '',
     label: 'Core Test Chain',
-    logoUrl: coreLogoUrl,
+    logoUrl: coreChainLogoUrl,
     nativeCurrency: { name: 'Core', symbol: 'CORE', decimals: 18 },
     color: darkTheme.chain_1,
   },
@@ -123,7 +123,11 @@ const CHAIN_INFO: ChainInfoMap = {
     logoUrl: optimismLogoUrl,
     statusPage: 'https://optimism.io/status',
     helpCenterUrl: 'https://help.uniswap.org/en/collections/3137778-uniswap-on-optimistic-ethereum-oξ',
-    nativeCurrency: { name: 'Optimism Goerli Ether', symbol: 'görOpETH', decimals: 18 },
+    nativeCurrency: {
+      name: 'Optimism Goerli Ether',
+      symbol: 'görOpETH',
+      decimals: 18,
+    },
     color: darkTheme.chain_420,
   },
   [SupportedChainId.ARBITRUM_ONE]: {
@@ -153,7 +157,11 @@ const CHAIN_INFO: ChainInfoMap = {
     logoUrl: arbitrumLogoUrl,
     defaultListUrl: ARBITRUM_LIST, // TODO: use arbitrum goerli token list
     helpCenterUrl: 'https://help.uniswap.org/en/collections/3137787-uniswap-on-arbitrum',
-    nativeCurrency: { name: 'Goerli Arbitrum Ether', symbol: 'goerliArbETH', decimals: 18 },
+    nativeCurrency: {
+      name: 'Goerli Arbitrum Ether',
+      symbol: 'goerliArbETH',
+      decimals: 18,
+    },
     color: darkTheme.chain_421613,
   },
   [SupportedChainId.POLYGON]: {
@@ -180,7 +188,11 @@ const CHAIN_INFO: ChainInfoMap = {
     infoLink: 'https://info.uniswap.org/#/polygon/',
     label: 'Polygon Mumbai',
     logoUrl: polygonMaticLogo,
-    nativeCurrency: { name: 'Polygon Mumbai Matic', symbol: 'mMATIC', decimals: 18 },
+    nativeCurrency: {
+      name: 'Polygon Mumbai Matic',
+      symbol: 'mMATIC',
+      decimals: 18,
+    },
   },
   [SupportedChainId.CELO]: {
     networkType: NetworkType.L1,
