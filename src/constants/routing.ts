@@ -204,6 +204,10 @@ export const COMMON_BASES: ChainCurrencyList = {
     BTC_BSC,
     BUSD_BSC,
   ],
+  [SupportedChainId.CORE_TEST]: [
+    nativeOnChain(SupportedChainId.CORE_TEST),
+    WRAPPED_NATIVE_CURRENCY[SupportedChainId.CORE_TEST] as Token,
+  ],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
