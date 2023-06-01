@@ -11,7 +11,7 @@ import { useWeb3React } from '@web3-react/core'
 import { sendEvent } from 'components/analytics'
 import Badge from 'components/Badge'
 import { ButtonConfirmed, ButtonGray, ButtonPrimary } from 'components/Button'
-import Card, { DarkCard, LightCard } from 'components/Card'
+import Card, { DarkCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import Loader from 'components/Icons/LoadingSpinner'
@@ -146,8 +146,8 @@ const ActionButtonResponsiveRow = styled(ResponsiveRow)`
   }
 `
 
+/** border-radius: 12px; */
 const ResponsiveButtonConfirmed = styled(ButtonConfirmed)`
-  border-radius: 12px;
   padding: 6px 8px;
   width: fit-content;
   font-size: 16px;
@@ -575,7 +575,7 @@ function PositionPageContent() {
   function modalHeader() {
     return (
       <AutoColumn gap="md" style={{ marginTop: '20px' }}>
-        <LightCard padding="12px 16px">
+        <Card padding="12px 16px" $backgroundColor={theme.backgroundLight}>
           <AutoColumn gap="md">
             <RowBetween>
               <RowFixed>
@@ -596,7 +596,7 @@ function PositionPageContent() {
               <ThemedText.DeprecatedMain>{feeValueLower?.currency?.symbol}</ThemedText.DeprecatedMain>
             </RowBetween>
           </AutoColumn>
-        </LightCard>
+        </Card>
         <ThemedText.DeprecatedItalic>
           <Trans>Collecting fees will withdraw currently available fees for you.</Trans>
         </ThemedText.DeprecatedItalic>
@@ -847,7 +847,6 @@ function PositionPageContent() {
                             disabled={collecting || !!collectMigrationHash}
                             confirmed={!!collectMigrationHash && !isCollectPending}
                             width="fit-content"
-                            style={{ borderRadius: '12px' }}
                             padding="4px 8px"
                             onClick={() => setShowConfirm(true)}
                           >
