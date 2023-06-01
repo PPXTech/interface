@@ -18,7 +18,7 @@ export default Card
 
 export const LightCard = styled(Card)`
   border: 1px solid ${({ theme }) => theme.backgroundInteractive};
-  background-color: ${({ theme, $backgroundColor }) => $backgroundColor ?? theme.deprecated_bg1};
+  background-color: ${({ theme, $backgroundColor }) => $backgroundColor ?? theme.backgroundInteractive};
 `
 
 export const GrayCard = styled(Card)`
@@ -30,6 +30,7 @@ export const DarkGrayCard = styled(Card)`
 `
 
 export const DarkCard = styled(Card)`
+  border: 1px solid ${({ theme }) => theme.backgroundInteractive};
   background-color: ${({ theme }) => theme.backgroundSurface};
 `
 

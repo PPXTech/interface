@@ -1,13 +1,16 @@
 import styled from 'styled-components/macro'
 
+/**
+ * border: ${({ theme }) => '1px solid ' + theme.backgroundInteractive};
+ */
 export const ToggleWrapper = styled.button<{ width?: string }>`
   display: flex;
   align-items: center;
   width: ${({ width }) => width ?? '100%'};
   padding: 1px;
-  background: ${({ theme }) => theme.deprecated_bg1};
+  background: ${({ theme }) => theme.backgroundInteractive};
   border-radius: 0;
-  border: ${({ theme }) => '1px solid ' + theme.backgroundInteractive};
+  border: none;
   cursor: pointer;
   outline: none;
 `

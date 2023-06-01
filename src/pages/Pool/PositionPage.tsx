@@ -11,7 +11,7 @@ import { useWeb3React } from '@web3-react/core'
 import { sendEvent } from 'components/analytics'
 import Badge from 'components/Badge'
 import { ButtonConfirmed, ButtonGray, ButtonPrimary } from 'components/Button'
-import { DarkCard, LightCard } from 'components/Card'
+import Card, { DarkCard, LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import Loader from 'components/Icons/LoadingSpinner'
@@ -90,6 +90,7 @@ const PageWrapper = styled.div`
 const BadgeText = styled.div`
   font-weight: 500;
   font-size: 14px;
+  color: #ffffff;
 `
 
 // responsive text
@@ -188,12 +189,13 @@ function CurrentPriceCard({
   currencyQuote?: Currency
   currencyBase?: Currency
 }) {
+  const theme = useTheme()
   if (!pool || !currencyQuote || !currencyBase) {
     return null
   }
 
   return (
-    <LightCard padding="12px">
+    <Card padding="12px" $backgroundColor={theme.backgroundLight}>
       <AutoColumn gap="sm" justify="center">
         <ExtentsText>
           <Trans>Current price</Trans>
@@ -207,7 +209,7 @@ function CurrentPriceCard({
           </Trans>
         </ExtentsText>
       </AutoColumn>
-    </LightCard>
+    </Card>
   )
 }
 
@@ -655,7 +657,11 @@ function PositionPageContent() {
             <AutoColumn gap="sm">
               <Link
                 data-cy="visit-pool"
-                style={{ textDecoration: 'none', width: 'fit-content', marginBottom: '0.5rem' }}
+                style={{
+                  textDecoration: 'none',
+                  width: 'fit-content',
+                  marginBottom: '0.5rem',
+                }}
                 to="/pools"
               >
                 <HoverText>
@@ -666,7 +672,8 @@ function PositionPageContent() {
                 <RowFixed>
                   <DoubleCurrencyLogo currency0={currencyBase} currency1={currencyQuote} size={24} margin={true} />
                   <ThemedText.DeprecatedLabel fontSize="24px" mr="10px">
-                    &nbsp;{currencyQuote?.symbol}&nbsp;/&nbsp;{currencyBase?.symbol}
+                    &nbsp;{currencyQuote?.symbol}&nbsp;/&nbsp;
+                    {currencyBase?.symbol}
                   </ThemedText.DeprecatedLabel>
                   <Badge style={{ marginRight: '8px' }}>
                     <BadgeText>
@@ -744,7 +751,12 @@ function PositionPageContent() {
                       </Label>
                       {fiatValueOfLiquidity?.greaterThan(new Fraction(1, 100)) ? (
                         <ThemedText.DeprecatedLargeHeader fontSize="36px" fontWeight={500}>
-                          <Trans>${fiatValueOfLiquidity.toFixed(2, { groupSeparator: ',' })}</Trans>
+                          <Trans>
+                            $
+                            {fiatValueOfLiquidity.toFixed(2, {
+                              groupSeparator: ',',
+                            })}
+                          </Trans>
                         </ThemedText.DeprecatedLargeHeader>
                       ) : (
                         <ThemedText.DeprecatedLargeHeader color={theme.textPrimary} fontSize="36px" fontWeight={500}>
@@ -752,7 +764,7 @@ function PositionPageContent() {
                         </ThemedText.DeprecatedLargeHeader>
                       )}
                     </AutoColumn>
-                    <LightCard padding="12px 16px">
+                    <Card padding="12px 16px" $backgroundColor={theme.backgroundLight}>
                       <AutoColumn gap="md">
                         <RowBetween>
                           <LinkedCurrency chainId={chainId} currency={currencyQuote} />
@@ -761,7 +773,12 @@ function PositionPageContent() {
                               {inverted ? position?.amount0.toSignificant(4) : position?.amount1.toSignificant(4)}
                             </ThemedText.DeprecatedMain>
                             {typeof ratio === 'number' && !removed ? (
-                              <Badge style={{ marginLeft: '10px' }}>
+                              <Badge
+                                style={{
+                                  marginLeft: '10px',
+                                  color: theme.textPrimary,
+                                }}
+                              >
                                 <ThemedText.DeprecatedMain color={theme.textSecondary} fontSize={11}>
                                   <Trans>{inverted ? ratio : 100 - ratio}%</Trans>
                                 </ThemedText.DeprecatedMain>
@@ -776,7 +793,12 @@ function PositionPageContent() {
                               {inverted ? position?.amount1.toSignificant(4) : position?.amount0.toSignificant(4)}
                             </ThemedText.DeprecatedMain>
                             {typeof ratio === 'number' && !removed ? (
-                              <Badge style={{ marginLeft: '10px' }}>
+                              <Badge
+                                style={{
+                                  marginLeft: '10px',
+                                  color: theme.textPrimary,
+                                }}
+                              >
                                 <ThemedText.DeprecatedMain color={theme.textSecondary} fontSize={11}>
                                   <Trans>{inverted ? 100 - ratio : ratio}%</Trans>
                                 </ThemedText.DeprecatedMain>
@@ -785,7 +807,7 @@ function PositionPageContent() {
                           </RowFixed>
                         </RowBetween>
                       </AutoColumn>
-                    </LightCard>
+                    </Card>
                   </AutoColumn>
                 </DarkCard>
                 <DarkCard>
@@ -802,7 +824,12 @@ function PositionPageContent() {
                               fontSize="36px"
                               fontWeight={500}
                             >
-                              <Trans>${fiatValueOfFees.toFixed(2, { groupSeparator: ',' })}</Trans>
+                              <Trans>
+                                $
+                                {fiatValueOfFees.toFixed(2, {
+                                  groupSeparator: ',',
+                                })}
+                              </Trans>
                             </ThemedText.DeprecatedLargeHeader>
                           ) : (
                             <ThemedText.DeprecatedLargeHeader
@@ -846,7 +873,7 @@ function PositionPageContent() {
                         ) : null}
                       </RowBetween>
                     </AutoColumn>
-                    <LightCard padding="12px 16px">
+                    <Card padding="12px 16px" $backgroundColor={theme.backgroundLight}>
                       <AutoColumn gap="md">
                         <RowBetween>
                           <RowFixed>
@@ -879,7 +906,7 @@ function PositionPageContent() {
                           </RowFixed>
                         </RowBetween>
                       </AutoColumn>
-                    </LightCard>
+                    </Card>
                     {showCollectAsWeth && (
                       <AutoColumn gap="md">
                         <RowBetween>
@@ -924,7 +951,7 @@ function PositionPageContent() {
                 </RowBetween>
 
                 <RowBetween>
-                  <LightCard padding="12px" width="100%">
+                  <Card padding="12px" width="100%" $backgroundColor={theme.backgroundLight}>
                     <AutoColumn gap="sm" justify="center">
                       <ExtentsText>
                         <Trans>Min price</Trans>
@@ -950,10 +977,10 @@ function PositionPageContent() {
                         </ThemedText.DeprecatedSmall>
                       )}
                     </AutoColumn>
-                  </LightCard>
+                  </Card>
 
                   <DoubleArrow>⟷</DoubleArrow>
-                  <LightCard padding="12px" width="100%">
+                  <Card padding="12px" width="100%" $backgroundColor={theme.backgroundLight}>
                     <AutoColumn gap="sm" justify="center">
                       <ExtentsText>
                         <Trans>Max price</Trans>
@@ -979,7 +1006,7 @@ function PositionPageContent() {
                         </ThemedText.DeprecatedSmall>
                       )}
                     </AutoColumn>
-                  </LightCard>
+                  </Card>
                 </RowBetween>
                 <CurrentPriceCard
                   inverted={inverted}

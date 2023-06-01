@@ -4,6 +4,7 @@ import { opacify } from './utils'
 export const colors = {
   white: '#FFFFFF',
   white50: '#D9D9D9',
+  white100: '#CCCCCC',
   black: '#000000',
   black50: '#101010',
   black100: '#030303',
@@ -140,6 +141,7 @@ export const darkTheme = {
   userThemeColor: colors.magentaVibrant,
 
   background: colors.black50,
+  backgroundReverse: colors.white50,
   backgroundBackdrop: colors.gray950,
   backgroundSurface: opacify(70, colors.black100),
   backgroundModule: opacify(25, colors.white),
@@ -148,6 +150,7 @@ export const darkTheme = {
   backgroundOutline: opacify(25, colors.white),
   backgroundScrim: opacify(72, colors.gray900),
   backgroundScrolledSurface: opacify(72, colors.gray900),
+  backgroundLight: opacify(5, colors.white100),
 
   iconColor: opacify(25, colors.white),
 
@@ -194,6 +197,7 @@ export const lightTheme: Theme = {
   userThemeColor: colors.magentaVibrant,
 
   background: '#faf9fa', //INTENTIONALLY OFF THEME TO GIVE WHITE BG A SOFTER VISUAL
+  backgroundReverse: colors.black50,
   backgroundBackdrop: colors.white,
   backgroundSurface: colors.white,
   backgroundModule: colors.gray50,
@@ -202,6 +206,7 @@ export const lightTheme: Theme = {
   backgroundOutline: colors.gray150,
   backgroundScrim: opacify(60, colors.gray900),
   backgroundScrolledSurface: opacify(72, colors.white),
+  backgroundLight: opacify(5, colors.black100),
 
   iconColor: colors.gray400,
 
