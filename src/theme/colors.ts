@@ -144,7 +144,7 @@ export const darkTheme = {
   backgroundModule: opacify(25, colors.white),
   backgroundInteractive: opacify(25, colors.white50),
   backgroundFloating: opacify(12, colors.black),
-  backgroundOutline: opacify(24, colors.gray300),
+  backgroundOutline: opacify(25, colors.white),
   backgroundScrim: opacify(72, colors.gray900),
   backgroundScrolledSurface: opacify(72, colors.gray900),
 
@@ -161,7 +161,7 @@ export const darkTheme = {
   accentFailure: colors.red300,
   accentCritical: colors.red300,
 
-  accentActionSoft: opacify(24, colors.blue400),
+  accentActionSoft: opacify(24, colors.orange400),
   accentActiveSoft: opacify(24, colors.blue400),
   accentSuccessSoft: opacify(24, colors.green400),
   accentWarningSoft: opacify(24, colors.gold200),
