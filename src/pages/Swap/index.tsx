@@ -48,7 +48,13 @@ import SwapCurrencyInputPanel from '../../components/CurrencyInputPanel/SwapCurr
 import { AutoRow } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
-import { ArrowWrapper, PageWrapper, SwapCallbackError, SwapWrapper } from '../../components/swap/styleds'
+import {
+  ArrowContainer,
+  ArrowWrapper,
+  PageWrapper,
+  SwapCallbackError,
+  SwapWrapper,
+} from '../../components/swap/styleds'
 import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import { getSwapCurrencyId, TOKEN_SHORTHANDS } from '../../constants/tokens'
@@ -65,15 +71,15 @@ import { computeFiatValuePriceImpact } from '../../utils/computeFiatValuePriceIm
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeRealizedPriceImpact, warningSeverity } from '../../utils/prices'
 import { supportedChainId } from '../../utils/supportedChainId'
-const ArrowContainer = styled.div`
-  display: inline-block;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+// const ArrowContainer = styled.div`
+//   display: inline-block;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
 
-  width: 100%;
-  height: 100%;
-`
+//   width: 100%;
+//   height: 100%;
+// `
 
 /**
  * border-radius: 12px;
