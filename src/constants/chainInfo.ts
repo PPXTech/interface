@@ -1,5 +1,6 @@
 import bnbCircleLogoUrl from 'assets/images/bnbCircle.svg'
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
+import coreLogoUrl from 'assets/images/core-logo.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
@@ -61,6 +62,16 @@ type ChainInfoMap = { readonly [chainId: number]: L1ChainInfo | L2ChainInfo } & 
 } & { readonly [chainId in SupportedL1ChainId]: L1ChainInfo }
 
 const CHAIN_INFO: ChainInfoMap = {
+  [SupportedChainId.CORE_TEST]: {
+    networkType: NetworkType.L1,
+    docs: 'https://docs.coredao.org/',
+    explorer: 'https://scan.test.btcs.network/',
+    infoLink: '',
+    label: 'Core Test Chain',
+    logoUrl: coreLogoUrl,
+    nativeCurrency: { name: 'Core', symbol: 'CORE', decimals: 18 },
+    color: darkTheme.chain_1,
+  },
   [SupportedChainId.MAINNET]: {
     networkType: NetworkType.L1,
     docs: 'https://docs.uniswap.org/',
