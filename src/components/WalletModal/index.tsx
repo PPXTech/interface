@@ -23,10 +23,12 @@ const Wrapper = styled.div`
   flex: 1;
 `
 
+/**
+ * border-radius: 12px;
+ */
 const OptionGrid = styled.div`
   display: grid;
   grid-gap: 2px;
-  border-radius: 12px;
   overflow: hidden;
   ${({ theme }) => theme.deprecated_mediaWidth.deprecated_upToMedium`
     grid-template-columns: 1fr;

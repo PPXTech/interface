@@ -17,7 +17,7 @@ import { useProfilePageState, useSellAsset, useWalletCollections } from 'nft/hoo
 import { useIsNftClaimAvailable } from 'nft/hooks/useIsNftClaimAvailable'
 import { ProfilePageStateType } from 'nft/types'
 import { useCallback, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, Copy, CreditCard, IconProps, Info, Power, Settings } from 'react-feather'
+import { ArrowDownRight, ArrowUpRight, Copy, IconProps, Info, Power, Settings } from 'react-feather'
 import { useNavigate } from 'react-router-dom'
 import { shouldDisableNFTRoutesAtom } from 'state/application/atoms'
 import { useAppDispatch } from 'state/hooks'
@@ -40,6 +40,7 @@ const AuthenticatedHeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  background-color: ${({ theme }) => theme.background};
 `
 
 const HeaderButton = styled(ThemeButton)`
@@ -269,7 +270,7 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
             <ThemedText.HeadlineLarge fontWeight={500}>
               {formatNumber(totalBalance, NumberType.PortfolioBalance)}
             </ThemedText.HeadlineLarge>
-            <AutoRow marginBottom="20px">
+            <AutoRow>
               {absoluteChange !== 0 && percentChange && (
                 <>
                   <PortfolioArrow change={absoluteChange as number} />
@@ -288,7 +289,7 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
             <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" />
           </Column>
         )}
-        {!shouldDisableNFTRoutes && (
+        {/* {!shouldDisableNFTRoutes && (
           <HeaderButton
             data-testid="nft-view-self-nfts"
             onClick={navigateToProfile}
@@ -297,8 +298,8 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
           >
             <Trans>View and sell NFTs</Trans>
           </HeaderButton>
-        )}
-        <HeaderButton
+        )} */}
+        {/* <HeaderButton
           size={ButtonSize.medium}
           emphasis={ButtonEmphasis.medium}
           onClick={handleBuyCryptoClick}
@@ -317,7 +318,7 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
               <Trans>Buy crypto</Trans>
             </>
           )}
-        </HeaderButton>
+        </HeaderButton> */}
         {Boolean(!fiatOnrampAvailable && fiatOnrampAvailabilityChecked) && (
           <FiatOnrampNotAvailableText marginTop="8px">
             <Trans>Not available in your region</Trans>

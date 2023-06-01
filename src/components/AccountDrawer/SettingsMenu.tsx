@@ -6,7 +6,6 @@ import { Check } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled, { useTheme } from 'styled-components/macro'
 import { ClickableStyle, ThemedText } from 'theme'
-import ThemeToggle from 'theme/components/ThemeToggle'
 
 import { GitVersionRow } from './GitVersionRow'
 import { SlideOutMenu } from './SlideOutMenu'
@@ -61,9 +60,9 @@ export default function SettingsMenu({ onClose }: { onClose: () => void }) {
       <SectionTitle>
         <Trans>Preferences</Trans>
       </SectionTitle>
-      <ThemeToggleContainer>
+      {/* <ThemeToggleContainer>
         <ThemeToggle />
-      </ThemeToggleContainer>
+      </ThemeToggleContainer> */}
       <BalanceToggleContainer>
         <SmallBalanceToggle />
       </BalanceToggleContainer>
