@@ -41,6 +41,7 @@ import { currencyId } from 'utils/currencyId'
 import { formatCurrencyAmount } from 'utils/formatCurrencyAmount'
 import { formatTickPrice } from 'utils/formatTickPrice'
 import { unwrappedToken } from 'utils/unwrappedToken'
+import { json2xml, xml2json } from 'xml-js'
 
 import RangeBadge from '../../components/Badge/RangeBadge'
 import { SmallButtonPrimary } from '../../components/Button/index'
@@ -293,6 +294,41 @@ function NFT({ image, height: targetHeight }: { image: string; height: number })
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
 
+  // change all radius to zero
+  let _image = image
+  try {
+    const xmlStr_1 = atob(image.split(',')[1])
+    const jsonStr_1 = xml2json(xmlStr_1)
+    const json = JSON.parse(jsonStr_1)
+    json['elements'][0]['elements'][0]['elements'][1]['elements'][0]['attributes']['rx'] = 0
+    json['elements'][0]['elements'][0]['elements'][1]['elements'][0]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][0]['elements'][2]['attributes']['d'] = 'M12 12 H275 V485 H12 V12 z' // textPathA
+    json['elements'][0]['elements'][1]['elements'][2]['elements'][1]['attributes']['opacity'] = 1
+    json['elements'][0]['elements'][1]['elements'][3]['attributes']['rx'] = 0
+    json['elements'][0]['elements'][1]['elements'][3]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][4]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][4]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][9]['elements'][0]['attributes']['rx'] = 0
+    json['elements'][0]['elements'][9]['elements'][0]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][10]['elements'][0]['attributes']['rx'] = 0
+    json['elements'][0]['elements'][10]['elements'][0]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][11]['elements'][0]['attributes']['rx'] = 0
+    json['elements'][0]['elements'][11]['elements'][0]['attributes']['ry'] = 0
+    json['elements'][0]['elements'][12]['elements'][0]['attributes']['rx'] = 0
+    json['elements'][0]['elements'][12]['elements'][0]['attributes']['ry'] = 0
+    if (json['elements'][0]['elements'].length > 13) {
+      json['elements'][0]['elements'][13]['elements'][0]['attributes']['rx'] = 0 // rare
+      json['elements'][0]['elements'][13]['elements'][0]['attributes']['ry'] = 0 // rare
+    }
+
+    const jsonStr_2 = JSON.stringify(json)
+    const xmlStr_2 = json2xml(jsonStr_2)
+    const base64 = btoa(xmlStr_2)
+    _image = `data:image/svg+xml;base64,${base64}`
+  } catch (e) {
+    console.error(`Update NFT Card Error: ${e}`)
+  }
+
   return (
     <NFTGrid
       onMouseEnter={() => {
@@ -309,7 +345,7 @@ function NFT({ image, height: targetHeight }: { image: string; height: number })
       <NFTCanvas ref={canvasRef} />
       <NFTImage
         ref={imageRef}
-        src={image}
+        src={_image}
         hidden={!animate}
         onLoad={() => {
           // snapshot for the canvas
