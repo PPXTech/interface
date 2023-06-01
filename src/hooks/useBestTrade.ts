@@ -2,9 +2,9 @@ import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { WRAPPED_NATIVE_CURRENCY } from 'constants/tokens'
 import { useMemo } from 'react'
-// import { RouterPreference } from 'state/routing/slice'
+import { RouterPreference } from 'state/routing/slice'
 import { InterfaceTrade, TradeState } from 'state/routing/types'
-// import { useRoutingAPITrade } from 'state/routing/useRoutingAPITrade'
+import { useRoutingAPITrade } from 'state/routing/useRoutingAPITrade'
 import { useClientSideRouter } from 'state/user/hooks'
 
 import useAutoRouterSupported from './useAutoRouterSupported'
@@ -47,18 +47,16 @@ export function useBestTrade(
   const shouldGetTrade = !isAWrapTransaction && isWindowVisible
 
   const [clientSideRouter] = useClientSideRouter()
-  // const routingAPITrade = useRoutingAPITrade(
-  //   tradeType,
-  //   autoRouterSupported && shouldGetTrade ? debouncedAmount : undefined,
-  //   debouncedOtherCurrency,
-  //   clientSideRouter ? RouterPreference.CLIENT : RouterPreference.API
-  // )
-  // console.log('routingAPITrade', routingAPITrade)
 
-  //const isLoading = routingAPITrade.state === TradeState.LOADING
-  // const useFallback = (!autoRouterSupported || routingAPITrade.state === TradeState.NO_ROUTE_FOUND) && shouldGetTrade
-  const useFallback = true
-  const isLoading = false
+  const routingAPITrade = useRoutingAPITrade(
+    tradeType,
+    autoRouterSupported && shouldGetTrade ? debouncedAmount : undefined,
+    debouncedOtherCurrency,
+    clientSideRouter ? RouterPreference.CLIENT : RouterPreference.API
+  )
+
+  const isLoading = routingAPITrade.state === TradeState.LOADING
+  const useFallback = (!autoRouterSupported || routingAPITrade.state === TradeState.NO_ROUTE_FOUND) && shouldGetTrade
 
   // only use client side router if routing api trade failed or is not supported
   const bestV3Trade = useClientSideV3Trade(
@@ -70,9 +68,9 @@ export function useBestTrade(
   // only return gas estimate from api if routing api trade is used
   return useMemo(
     () => ({
-      ...bestV3Trade,
+      ...(useFallback ? bestV3Trade : routingAPITrade),
       ...(isLoading ? { state: TradeState.LOADING } : {}),
     }),
-    [bestV3Trade, isLoading, useFallback]
+    [bestV3Trade, isLoading, routingAPITrade, useFallback]
   )
 }
