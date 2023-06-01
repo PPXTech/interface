@@ -161,7 +161,7 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   background-color: ${({ theme }) => transparentize(0.95, theme.deprecated_primary3)};
   color: ${({ theme }) => theme.accentAction};
   padding: 0.5rem;
-  border-radius: 12px;
+  border-radius: 0;
   margin-top: 8px;
 `
 

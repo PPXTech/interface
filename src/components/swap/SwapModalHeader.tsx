@@ -175,7 +175,7 @@ export default function SwapModalHeader({
                 padding: '.5rem',
                 width: 'fit-content',
                 fontSize: '0.825rem',
-                borderRadius: '12px',
+                borderRadius: '0',
               }}
               onClick={onAcceptChanges}
             >
