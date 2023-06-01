@@ -672,8 +672,8 @@ function PositionPageContent() {
                 <RowFixed>
                   <DoubleCurrencyLogo currency0={currencyBase} currency1={currencyQuote} size={24} margin={true} />
                   <ThemedText.DeprecatedLabel fontSize="24px" mr="10px">
-                    &nbsp;{currencyQuote?.symbol}&nbsp;/&nbsp;
-                    {currencyBase?.symbol}
+                    {/* &nbsp;{currencyQuote?.symbol}&nbsp;/&nbsp;{currencyBase?.symbol} */}
+                    &nbsp;{currencyQuote?.symbol}/{currencyBase?.symbol}
                   </ThemedText.DeprecatedLabel>
                   <Badge style={{ marginRight: '8px' }}>
                     <BadgeText>
