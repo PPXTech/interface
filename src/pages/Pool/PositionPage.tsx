@@ -745,6 +745,7 @@ function PositionPageContent() {
               <HideSmall
                 style={{
                   marginRight: '12px',
+                  height: '100%',
                 }}
               >
                 {'result' in metadata ? (
