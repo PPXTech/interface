@@ -110,16 +110,19 @@ const MenuFlyout = styled.span`
 const Break = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${({ theme }) => theme.deprecated_bg3};
+  background-color: ${({ theme }) => theme.backgroundInteractive};
 `
 
+/**
+ * border-radius: 20px;
+ */
 const ModalContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem 0;
-  background-color: ${({ theme }) => theme.backgroundInteractive};
-  border-radius: 20px;
+  background-color: ${({ theme }) => theme.background};
+  border: 1px solid ${({ theme }) => theme.backgroundInteractive};
 `
 
 export default function SettingsTab({ placeholderSlippage }: { placeholderSlippage: Percent }) {

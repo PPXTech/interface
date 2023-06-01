@@ -19,20 +19,12 @@ import Polling from '../components/Polling'
 import Popups from '../components/Popups'
 import AddLiquidity from './AddLiquidity'
 import { RedirectDuplicateTokenIds } from './AddLiquidity/redirects'
-import { RedirectDuplicateTokenIdsV2 } from './AddLiquidityV2/redirects'
-import Landing from './Landing'
-import MigrateV2 from './MigrateV2'
-import MigrateV2Pair from './MigrateV2/MigrateV2Pair'
 import NotFound from './NotFound'
 import Pool from './Pool'
 import PositionPage from './Pool/PositionPage'
-import PoolV2 from './Pool/v2'
-import PoolFinder from './PoolFinder'
-import RemoveLiquidity from './RemoveLiquidity'
 import RemoveLiquidityV3 from './RemoveLiquidity/V3'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
-import Tokens from './Tokens'
 
 const TokenDetails = lazy(() => import('./TokenDetails'))
 const Vote = lazy(() => import('./Vote'))
@@ -232,9 +224,9 @@ export default function App() {
         <Suspense fallback={<Loader />}>
           {isLoaded ? (
             <Routes>
-              <Route path="/" element={<Landing />} />
+              <Route path="/" element={<RedirectPathToSwapOnly />} />
 
-              <Route path="tokens" element={<Tokens />}>
+              {/* <Route path="tokens" element={<Tokens />}>
                 <Route path=":chainName" />
               </Route>
               <Route path="tokens/:chainName/:tokenAddress" element={<TokenDetails />} />
@@ -247,23 +239,23 @@ export default function App() {
                 }
               />
               <Route path="create-proposal" element={<Navigate to="/vote/create-proposal" replace />} />
-              <Route path="send" element={<RedirectPathToSwapOnly />} />
+              <Route path="send" element={<RedirectPathToSwapOnly />} /> */}
               <Route path="swap" element={<Swap />} />
 
-              <Route path="pool/v2/find" element={<PoolFinder />} />
-              <Route path="pool/v2" element={<PoolV2 />} />
+              {/* <Route path="pool/v2/find" element={<PoolFinder />} />
+              <Route path="pool/v2" element={<PoolV2 />} /> */}
               <Route path="pool" element={<Pool />} />
               <Route path="pool/:tokenId" element={<PositionPage />} />
 
-              <Route path="pools/v2/find" element={<PoolFinder />} />
-              <Route path="pools/v2" element={<PoolV2 />} />
+              {/* <Route path="pools/v2/find" element={<PoolFinder />} />
+              <Route path="pools/v2" element={<PoolV2 />} /> */}
               <Route path="pools" element={<Pool />} />
               <Route path="pools/:tokenId" element={<PositionPage />} />
 
-              <Route path="add/v2" element={<RedirectDuplicateTokenIdsV2 />}>
+              {/* <Route path="add/v2" element={<RedirectDuplicateTokenIdsV2 />}>
                 <Route path=":currencyIdA" />
                 <Route path=":currencyIdA/:currencyIdB" />
-              </Route>
+              </Route> */}
               <Route path="add" element={<RedirectDuplicateTokenIds />}>
                 {/* this is workaround since react-router-dom v6 doesn't support optional parameters any more */}
                 <Route path=":currencyIdA" />
@@ -278,13 +270,13 @@ export default function App() {
                 <Route path=":currencyIdA/:currencyIdB/:feeAmount/:tokenId" />
               </Route>
 
-              <Route path="remove/v2/:currencyIdA/:currencyIdB" element={<RemoveLiquidity />} />
+              {/* <Route path="remove/v2/:currencyIdA/:currencyIdB" element={<RemoveLiquidity />} /> */}
               <Route path="remove/:tokenId" element={<RemoveLiquidityV3 />} />
 
-              <Route path="migrate/v2" element={<MigrateV2 />} />
-              <Route path="migrate/v2/:address" element={<MigrateV2Pair />} />
+              {/* <Route path="migrate/v2" element={<MigrateV2 />} />
+              <Route path="migrate/v2/:address" element={<MigrateV2Pair />} /> */}
 
-              {!shouldDisableNFTRoutes && (
+              {/* {!shouldDisableNFTRoutes && (
                 <>
                   <Route
                     path="/nfts"
@@ -331,7 +323,7 @@ export default function App() {
                     }
                   />
                 </>
-              )}
+              )} */}
 
               <Route path="*" element={<Navigate to="/not-found" replace />} />
               <Route path="/not-found" element={<NotFound />} />
