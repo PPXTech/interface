@@ -1,5 +1,4 @@
 import Loader from 'components/Icons/LoadingSpinner'
-import TopLevelModals from 'components/TopLevelModals'
 import { useFeatureFlagsIsLoaded } from 'featureFlags'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import { useAtom } from 'jotai'
@@ -220,7 +219,7 @@ export default function App() {
       <BodyWrapper>
         <Popups />
         <Polling />
-        <TopLevelModals />
+        {/* <TopLevelModals /> */}
         <Suspense fallback={<Loader />}>
           {isLoaded ? (
             <Routes>
