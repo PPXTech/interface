@@ -20,9 +20,9 @@ export const LoadingRows = styled.div`
     animation-fill-mode: both;
     background: linear-gradient(
       to left,
-      ${({ theme }) => theme.deprecated_bg1} 25%,
+      ${({ theme }) => theme.backgroundLight} 25%,
       ${({ theme }) => theme.backgroundInteractive} 50%,
-      ${({ theme }) => theme.deprecated_bg1} 75%
+      ${({ theme }) => theme.backgroundLight} 75%
     );
     background-size: 400%;
     height: 2.4em;
