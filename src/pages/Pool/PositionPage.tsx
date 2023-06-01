@@ -683,20 +683,13 @@ function PositionPageContent() {
                         to={`/increase/${currencyId(currency0)}/${currencyId(currency1)}/${feeAmount}/${tokenId}`}
                         padding="6px 8px"
                         width="fit-content"
-                        $borderRadius="12px"
                         style={{ marginRight: '8px' }}
                       >
                         <Trans>Increase Liquidity</Trans>
                       </ButtonGray>
                     ) : null}
                     {tokenId && !removed ? (
-                      <SmallButtonPrimary
-                        as={Link}
-                        to={`/remove/${tokenId}`}
-                        padding="6px 8px"
-                        width="fit-content"
-                        $borderRadius="12px"
-                      >
+                      <SmallButtonPrimary as={Link} to={`/remove/${tokenId}`} padding="6px 8px" width="fit-content">
                         <Trans>Remove Liquidity</Trans>
                       </SmallButtonPrimary>
                     ) : null}

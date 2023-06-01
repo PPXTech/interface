@@ -34,7 +34,7 @@ export const DarkCard = styled(Card)`
 `
 
 export const OutlineCard = styled(Card)`
-  border: 1px solid ${({ theme }) => theme.deprecated_bg3};
+  border: 1px solid ${({ theme }) => theme.backgroundInteractive};
 `
 
 export const YellowCard = styled(Card)`
@@ -46,5 +46,5 @@ export const YellowCard = styled(Card)`
 export const BlueCard = styled(Card)`
   background-color: ${({ theme }) => theme.deprecated_primary5};
   color: ${({ theme }) => theme.accentAction};
-  border-radius: 12px;
+  border-radius: 0;
 `

@@ -6,6 +6,7 @@ export const colors = {
   white50: '#D9D9D9',
   black: '#000000',
   black50: '#101010',
+  black100: '#030303',
   gray50: '#F5F6FC',
   gray100: '#E8ECFB',
   gray150: '#D2D9EE',
@@ -140,7 +141,7 @@ export const darkTheme = {
 
   background: colors.black50,
   backgroundBackdrop: colors.gray950,
-  backgroundSurface: colors.gray900,
+  backgroundSurface: opacify(70, colors.black100),
   backgroundModule: opacify(25, colors.white),
   backgroundInteractive: opacify(25, colors.white50),
   backgroundFloating: opacify(12, colors.black),
