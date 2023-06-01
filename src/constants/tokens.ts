@@ -354,6 +354,29 @@ export const BUSD_BSC = new Token(
 
 export const DAI_BSC = new Token(SupportedChainId.BNB, '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3', 18, 'DAI', 'DAI')
 
+// Core Test Chain
+export const USDC_CORE_TEST = new Token(
+  SupportedChainId.CORE_TEST,
+  '0x65A8173c48B49a1320cc4513DCD4792e315fE2b1',
+  6,
+  'USDC',
+  'USD Coin'
+)
+export const USDT_CORE_TEST = new Token(
+  SupportedChainId.CORE_TEST,
+  '0x5700aff131756461537420e8f434d9f43ef97c48',
+  6,
+  'USDT',
+  'Tether USD'
+)
+export const DAI_CORE_TEST = new Token(
+  SupportedChainId.CORE_TEST,
+  '0x99d8eca506c1beae30d762b18c280d4b7aab9e7e',
+  18,
+  'DAI',
+  'Dai Stablecoin'
+)
+
 export const UNI: { [chainId: number]: Token } = {
   [SupportedChainId.MAINNET]: new Token(SupportedChainId.MAINNET, UNI_ADDRESS[1], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.GOERLI]: new Token(SupportedChainId.GOERLI, UNI_ADDRESS[5], 18, 'UNI', 'Uniswap'),
@@ -566,5 +589,6 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.CELO]: PORTAL_USDC_CELO.address,
     [SupportedChainId.CELO_ALFAJORES]: PORTAL_USDC_CELO.address,
     [SupportedChainId.GOERLI]: USDC_GOERLI.address,
+    [SupportedChainId.CORE_TEST]: USDC_CORE_TEST.address,
   },
 }

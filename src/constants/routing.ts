@@ -15,6 +15,7 @@ import {
   DAI,
   DAI_ARBITRUM_ONE,
   DAI_BSC,
+  DAI_CORE_TEST,
   DAI_OPTIMISM,
   DAI_POLYGON,
   ETH_BSC,
@@ -35,12 +36,14 @@ import {
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_BSC,
+  USDC_CORE_TEST,
   USDC_MAINNET,
   USDC_OPTIMISM,
   USDC_POLYGON,
   USDT,
   USDT_ARBITRUM_ONE,
   USDT_BSC,
+  USDT_CORE_TEST,
   USDT_OPTIMISM,
   USDT_POLYGON,
   WBTC,
@@ -106,6 +109,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     CAKE_BSC,
   ],
   [SupportedChainId.CELO]: [CUSD_CELO, CEUR_CELO, CMC02_CELO, PORTAL_USDC_CELO, PORTAL_ETH_CELO],
+  [SupportedChainId.CORE_TEST]: [USDC_CORE_TEST, USDT_CORE_TEST, DAI_CORE_TEST],
 }
 export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {
   [SupportedChainId.MAINNET]: {
@@ -207,6 +211,9 @@ export const COMMON_BASES: ChainCurrencyList = {
   [SupportedChainId.CORE_TEST]: [
     nativeOnChain(SupportedChainId.CORE_TEST),
     WRAPPED_NATIVE_CURRENCY[SupportedChainId.CORE_TEST] as Token,
+    DAI_CORE_TEST,
+    USDC_CORE_TEST,
+    USDT_CORE_TEST,
   ],
 }
 

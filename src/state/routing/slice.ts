@@ -21,7 +21,6 @@ function getRouter(chainId: ChainId): AlphaRouter {
   if (router) return router
 
   const supportedChainId = toSupportedChainId(chainId)
-  console.log('supportedChainId', supportedChainId)
   if (supportedChainId) {
     const provider = RPC_PROVIDERS[supportedChainId]
     const router = new AlphaRouter({ chainId, provider })
@@ -128,7 +127,7 @@ export const routingApi = createApi({
         try {
           if (routerPreference === RouterPreference.API) {
             const query = qs.stringify({
-              //...API_QUERY_PARAMS,
+              ...API_QUERY_PARAMS,
               tokenInAddress,
               tokenInChainId,
               tokenOutAddress,
@@ -150,6 +149,7 @@ export const routingApi = createApi({
         } catch (error) {
           // TODO: fall back to client-side quoter when auto router fails.
           // deprecate 'legacy' v2/v3 routers first.
+          // console.log('error', error)
           return { error: { status: 'CUSTOM_ERROR', error: error.toString() } }
         }
       },
