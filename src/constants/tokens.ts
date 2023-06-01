@@ -424,6 +424,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WBNB',
     'Wrapped BNB'
   ),
+  [SupportedChainId.CORE_TEST]: new Token(
+    SupportedChainId.CORE_TEST,
+    '0xeEFc44237354771fEb09Aa0a18A85eD536F15184',
+    18,
+    'WCORE',
+    'Wrapped CORE'
+  ),
 }
 
 export function isCelo(chainId: number): chainId is SupportedChainId.CELO | SupportedChainId.CELO_ALFAJORES {
@@ -485,6 +492,28 @@ class BscNativeCurrency extends NativeCurrency {
   }
 }
 
+export function isCore(chainId: number): chainId is SupportedChainId.CORE_TEST {
+  return chainId === SupportedChainId.CORE_TEST
+}
+
+class CoreNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isCore(this.chainId)) throw new Error('Not core')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isCore(chainId)) throw new Error('Not core')
+    super(chainId, 18, 'CORE', 'Core')
+  }
+}
+
 class ExtendedEther extends Ether {
   public get wrapped(): Token {
     const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
@@ -509,6 +538,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = getCeloNativeCurrency(chainId)
   } else if (isBsc(chainId)) {
     nativeCurrency = new BscNativeCurrency(chainId)
+  } else if (isCore(chainId)) {
+    nativeCurrency = new CoreNativeCurrency(chainId)
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }
