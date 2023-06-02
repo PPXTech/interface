@@ -25,7 +25,7 @@ const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Token> } = {
   [SupportedChainId.POLYGON]: CurrencyAmount.fromRawAmount(USDC_POLYGON, 10_000e6),
   [SupportedChainId.CELO]: CurrencyAmount.fromRawAmount(CUSD_CELO, 10_000e18),
   [SupportedChainId.BNB]: CurrencyAmount.fromRawAmount(USDT_BSC, 100e18),
-  [SupportedChainId.CORE_TEST]: CurrencyAmount.fromRawAmount(USDC_CORE_TEST, 100e6),
+  [SupportedChainId.CORE_TEST]: CurrencyAmount.fromRawAmount(USDC_CORE_TEST, 1),
 }
 
 /**
