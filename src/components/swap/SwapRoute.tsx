@@ -20,7 +20,8 @@ import styled from 'styled-components/macro'
 import { Separator, ThemedText } from 'theme'
 import { useDarkModeManager } from 'theme/components/ThemeToggle'
 
-import { AutoRouterLabel, AutoRouterLogo } from './RouterLabel'
+// import { AutoRouterLabel, AutoRouterLogo } from './RouterLabel'
+import { AutoRouterLabel } from './RouterLabel'
 
 /**
  * border-radius: 16px;
@@ -74,7 +75,7 @@ export default memo(function SwapRoute({ trade, syncing, fixedOpen = false, ...r
       >
         <RowBetween onClick={() => setOpen(!open)}>
           <AutoRow gap="4px" width="auto">
-            <AutoRouterLogo />
+            {/* <AutoRouterLogo /> */}
             <AutoRouterLabel />
           </AutoRow>
           {fixedOpen ? null : <OpenCloseIcon open={open} />}
