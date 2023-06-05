@@ -97,9 +97,9 @@ const Navbar = ({ blur }: { blur: boolean }) => {
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
               <IntimeIcon
-                width="48"
-                height="48"
-                viewBox="0 0 917 917"
+                width="64"
+                height="64"
+                viewBox="0 0 2337 2337"
                 data-testid="uniswap-logo"
                 className={styles.logo}
                 onClick={() => {
