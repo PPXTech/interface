@@ -113,8 +113,9 @@ const ExtentsText = styled.span`
 `
 
 const HoverText = styled(ThemedText.DeprecatedMain)`
+  font-weight: bold !important;
   text-decoration: none;
-  color: ${({ theme }) => theme.textTertiary};
+  color: ${({ theme }) => theme.textSecondary};
   :hover {
     color: ${({ theme }) => theme.textPrimary};
     text-decoration: none;
@@ -122,8 +123,11 @@ const HoverText = styled(ThemedText.DeprecatedMain)`
 `
 
 const DoubleArrow = styled.span`
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: bold;
   color: ${({ theme }) => theme.textTertiary};
-  margin: 0 1rem;
+  margin: 0 0.5rem;
 `
 const ResponsiveRow = styled(RowBetween)`
   @media only screen and (max-width: ${({ theme }) => `${theme.breakpoint.sm}px`}) {
@@ -196,7 +200,7 @@ function CurrentPriceCard({
   }
 
   return (
-    <Card padding="12px" $backgroundColor={theme.backgroundLight}>
+    <DarkCard padding="12px">
       <AutoColumn gap="sm" justify="center">
         <ExtentsText>
           <Trans>Current price</Trans>
@@ -210,7 +214,7 @@ function CurrentPriceCard({
           </Trans>
         </ExtentsText>
       </AutoColumn>
-    </Card>
+    </DarkCard>
   )
 }
 
@@ -697,6 +701,7 @@ function PositionPageContent() {
                   textDecoration: 'none',
                   width: 'fit-content',
                   marginBottom: '0.5rem',
+                  fontWeight: 'bold',
                 }}
                 to="/pools"
               >
@@ -987,7 +992,7 @@ function PositionPageContent() {
                 </RowBetween>
 
                 <RowBetween>
-                  <Card padding="12px" width="100%" $backgroundColor={theme.backgroundLight}>
+                  <DarkCard padding="12px" width="100%">
                     <AutoColumn gap="sm" justify="center">
                       <ExtentsText>
                         <Trans>Min price</Trans>
@@ -1013,10 +1018,10 @@ function PositionPageContent() {
                         </ThemedText.DeprecatedSmall>
                       )}
                     </AutoColumn>
-                  </Card>
+                  </DarkCard>
 
                   <DoubleArrow>⟷</DoubleArrow>
-                  <Card padding="12px" width="100%" $backgroundColor={theme.backgroundLight}>
+                  <DarkCard padding="12px" width="100%">
                     <AutoColumn gap="sm" justify="center">
                       <ExtentsText>
                         <Trans>Max price</Trans>
@@ -1042,7 +1047,7 @@ function PositionPageContent() {
                         </ThemedText.DeprecatedSmall>
                       )}
                     </AutoColumn>
-                  </Card>
+                  </DarkCard>
                 </RowBetween>
                 <CurrentPriceCard
                   inverted={inverted}

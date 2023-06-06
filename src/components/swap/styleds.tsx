@@ -54,11 +54,11 @@ export const ArrowContainer = styled.div`
  * border-radius: 12px;
  */
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   position: relative;
-  margin-top: -18px;
-  margin-bottom: -18px;
+  margin-top: -14px;
+  margin-bottom: -14px;
   margin-left: auto;
   margin-right: auto;
   background-color: ${({ theme }) => theme.background};

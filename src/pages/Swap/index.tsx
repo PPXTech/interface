@@ -642,7 +642,7 @@ export function Swap({
               color={theme.textPrimary}
             >
               <ArrowDown
-                size="24"
+                size="26"
                 color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.textPrimary : theme.textTertiary}
               />
             </ArrowContainer>

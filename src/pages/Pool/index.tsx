@@ -307,7 +307,11 @@ export default function Pool() {
                   </ThemedText.DeprecatedBody>
                   {!showConnectAWallet && closedPositions.length > 0 && (
                     <ButtonText
-                      style={{ marginTop: '.5rem' }}
+                      style={{
+                        color: '#EB6C22',
+                        marginTop: '.5rem',
+                        marginBottom: '.5rem',
+                      }}
                       onClick={() => setUserHideClosedPositions(!userHideClosedPositions)}
                     >
                       <Trans>Show closed positions</Trans>
@@ -321,7 +325,11 @@ export default function Pool() {
                       element={InterfaceElementName.CONNECT_WALLET_BUTTON}
                     >
                       <ButtonPrimary
-                        style={{ marginTop: '2em', marginBottom: '2em', padding: '8px 16px' }}
+                        style={{
+                          marginTop: '2em',
+                          marginBottom: '2em',
+                          padding: '8px 16px',
+                        }}
                         onClick={toggleWalletDrawer}
                       >
                         <Trans>Connect a wallet</Trans>
