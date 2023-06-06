@@ -187,8 +187,7 @@ export default function App() {
   }, [])
 
   const isBagExpanded = useBag((state) => state.bagExpanded)
-  // const isHeaderTransparent = !scrolledState && !isBagExpanded
-  const isHeaderTransparent = false
+  const isHeaderTransparent = !scrolledState && !isBagExpanded
 
   // const { account } = useWeb3React()
   // const statsigUser: StatsigUser = useMemo(
