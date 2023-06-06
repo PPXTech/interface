@@ -7,7 +7,7 @@ import { useIsPoolsPage } from 'hooks/useIsPoolsPage'
 import { useAtomValue } from 'jotai/utils'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
-// import { IntimeIcon } from 'nft/components/icons'
+import { IntimeIcon } from 'nft/components/icons'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
 import { ReactNode } from 'react'
@@ -15,7 +15,6 @@ import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-do
 import { shouldDisableNFTRoutesAtom } from 'state/application/atoms'
 import styled from 'styled-components/macro'
 
-import intimeLogo from '../../assets/images/intime-logo.png'
 import { Bag } from './Bag'
 import Blur from './Blur'
 import { ChainSelector } from './ChainSelector'
@@ -97,17 +96,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <img
-                src={intimeLogo}
-                alt="intimeLogo"
-                width={48}
-                onClick={() => {
-                  navigate({
-                    pathname: '/',
-                  })
-                }}
-              />
-              {/* <IntimeIcon
+              <IntimeIcon
                 width="64"
                 height="64"
                 viewBox="0 0 2337 2337"
@@ -119,7 +108,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
                     search: '?intro=true',
                   })
                 }}
-              /> */}
+              />
               {/* <UniIcon
                 width="48"
                 height="48"
@@ -156,6 +145,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
                   <ChainSelector />
                 </Box>
               )}
+
               <Web3Status />
             </Row>
           </Box>
