@@ -333,7 +333,7 @@ export default function App() {
         </Suspense>
       </BodyWrapper>
       <MobileBottomBar>
-        <PageTabs />
+        <PageTabs isMobile={true} />
       </MobileBottomBar>
       {/**
        * </StatsigProvider>

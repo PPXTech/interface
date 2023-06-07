@@ -21,7 +21,7 @@
     }
   ],
   "orientation": "portrait",
-  "name": "Intime",
+  "name": "Intime Swap",
   "description": "Swap or provide liquidity for Core",
   "iconPath": "./images/192x192_App_Icon.png",
   "short_name": "Intime",

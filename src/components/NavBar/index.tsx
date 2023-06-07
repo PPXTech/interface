@@ -7,7 +7,7 @@ import { useIsPoolsPage } from 'hooks/useIsPoolsPage'
 import { useAtomValue } from 'jotai/utils'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
-import { IntimeIcon } from 'nft/components/icons'
+// import { IntimeIcon } from 'nft/components/icons'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
 import { ReactNode } from 'react'
@@ -15,6 +15,7 @@ import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-do
 import { shouldDisableNFTRoutesAtom } from 'state/application/atoms'
 import styled from 'styled-components/macro'
 
+import intimeLogo from '../../assets/images/intime-logo.png'
 import { Bag } from './Bag'
 import Blur from './Blur'
 import { ChainSelector } from './ChainSelector'
@@ -31,17 +32,18 @@ interface MenuItemProps {
   href: string
   id?: NavLinkProps['id']
   isActive?: boolean
+  isMobile?: boolean
   children: ReactNode
   dataTestId?: string
 }
 
-const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) => {
+const MenuItem = ({ href, dataTestId, id, isActive, isMobile, children }: MenuItemProps) => {
   return (
     <NavLink
       to={href}
       className={isActive ? styles.activeMenuItem : styles.menuItem}
       id={id}
-      style={{ textDecoration: 'none' }}
+      style={{ textDecoration: 'none', fontWeight: isMobile ? 'bold' : 'normal' }}
       data-testid={dataTestId}
     >
       {children}
@@ -49,7 +51,7 @@ const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) =
   )
 }
 
-export const PageTabs = () => {
+export const PageTabs = ({ isMobile }: { isMobile: boolean }) => {
   const { pathname } = useLocation()
   const { chainId: connectedChainId } = useWeb3React()
   const chainName = chainIdToBackendName(connectedChainId)
@@ -61,8 +63,8 @@ export const PageTabs = () => {
 
   return (
     <>
-      <MenuItem href="/swap" isActive={pathname.startsWith('/swap')}>
-        <Trans>Swap</Trans>
+      <MenuItem href="/swap" isActive={pathname.startsWith('/swap')} isMobile={isMobile}>
+        <Trans>{isMobile ? 'SWAP' : 'Swap'}</Trans>
       </MenuItem>
       {/* <MenuItem href={`/tokens/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/tokens')}>
         <Trans>Tokens</Trans>
@@ -73,8 +75,8 @@ export const PageTabs = () => {
         </MenuItem>
       )} */}
       <Box display={{ sm: 'flex', lg: 'none', xxl: 'flex' }} width="full">
-        <MenuItem href="/pools" dataTestId="pool-nav-link" isActive={isPoolActive}>
-          <Trans>Pools</Trans>
+        <MenuItem href="/pools" dataTestId="pool-nav-link" isActive={isPoolActive} isMobile={isMobile}>
+          <Trans>{isMobile ? 'POOLS' : 'Pools'}</Trans>
         </MenuItem>
       </Box>
       {/* <Box marginY={{ sm: '4', md: 'unset' }}>
@@ -96,7 +98,17 @@ const Navbar = ({ blur }: { blur: boolean }) => {
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <IntimeIcon
+              <img
+                src={intimeLogo}
+                alt="intimeLogo"
+                width={64}
+                onClick={() => {
+                  navigate({
+                    pathname: '/',
+                  })
+                }}
+              />
+              {/* <IntimeIcon
                 width="64"
                 height="64"
                 viewBox="0 0 2337 2337"
@@ -108,7 +120,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
                     search: '?intro=true',
                   })
                 }}
-              />
+              /> */}
               {/* <UniIcon
                 width="48"
                 height="48"
@@ -128,7 +140,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
               </Box>
             )}
             <Row display={{ sm: 'none', lg: 'flex' }}>
-              <PageTabs />
+              <PageTabs isMobile={false} />
             </Row>
           </Box>
           {/* <Box className={styles.searchContainer}>

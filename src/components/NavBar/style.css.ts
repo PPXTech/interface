@@ -67,7 +67,7 @@ const baseMenuItem = style([
     height: 'min',
     width: 'full',
     textAlign: 'center',
-    display: 'flex',
+    display: 'block',
     alignItems: 'center',
     gap: '4',
   }),

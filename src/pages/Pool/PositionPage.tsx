@@ -138,6 +138,7 @@ const ResponsiveRow = styled(RowBetween)`
   }
 `
 
+// * { width: 100%; }
 const ActionButtonResponsiveRow = styled(ResponsiveRow)`
   width: 50%;
   justify-content: flex-end;
@@ -145,9 +146,7 @@ const ActionButtonResponsiveRow = styled(ResponsiveRow)`
   @media only screen and (max-width: ${({ theme }) => `${theme.breakpoint.sm}px`}) {
     width: 100%;
     flex-direction: row;
-    * {
-      width: 100%;
-    }
+    justify-content: space-between;
   }
 `
 
@@ -731,7 +730,7 @@ function PositionPageContent() {
                         to={`/increase/${currencyId(currency0)}/${currencyId(currency1)}/${feeAmount}/${tokenId}`}
                         padding="6px 8px"
                         width="fit-content"
-                        style={{ marginRight: '8px' }}
+                        style={{ marginRight: '8px', fontWeight: 'bold' }}
                       >
                         <Trans>Increase Liquidity</Trans>
                       </ButtonGray>
@@ -854,35 +853,11 @@ function PositionPageContent() {
                 </DarkCard>
                 <DarkCard>
                   <AutoColumn gap="md" style={{ width: '100%' }}>
-                    <AutoColumn gap="md">
+                    <AutoColumn>
                       <RowBetween style={{ alignItems: 'flex-start' }}>
-                        <AutoColumn gap="md">
-                          <Label>
-                            <Trans>Unclaimed fees</Trans>
-                          </Label>
-                          {fiatValueOfFees?.greaterThan(new Fraction(1, 100)) ? (
-                            <ThemedText.DeprecatedLargeHeader
-                              color={theme.accentSuccess}
-                              fontSize="36px"
-                              fontWeight={500}
-                            >
-                              <Trans>
-                                $
-                                {fiatValueOfFees.toFixed(2, {
-                                  groupSeparator: ',',
-                                })}
-                              </Trans>
-                            </ThemedText.DeprecatedLargeHeader>
-                          ) : (
-                            <ThemedText.DeprecatedLargeHeader
-                              color={theme.textPrimary}
-                              fontSize="36px"
-                              fontWeight={500}
-                            >
-                              <Trans>$-</Trans>
-                            </ThemedText.DeprecatedLargeHeader>
-                          )}
-                        </AutoColumn>
+                        <Label>
+                          <Trans>Unclaimed fees</Trans>
+                        </Label>
                         {ownsNFT &&
                         (feeValue0?.greaterThan(0) || feeValue1?.greaterThan(0) || !!collectMigrationHash) ? (
                           <ResponsiveButtonConfirmed
@@ -893,11 +868,11 @@ function PositionPageContent() {
                             onClick={() => setShowConfirm(true)}
                           >
                             {!!collectMigrationHash && !isCollectPending ? (
-                              <ThemedText.DeprecatedMain color={theme.textPrimary}>
+                              <ThemedText.DeprecatedMain color={theme.textPrimary} fontWeight="bold">
                                 <Trans> Collected</Trans>
                               </ThemedText.DeprecatedMain>
                             ) : isCollectPending || collecting ? (
-                              <ThemedText.DeprecatedMain color={theme.textPrimary}>
+                              <ThemedText.DeprecatedMain color={theme.textPrimary} fontWeight="bold">
                                 {' '}
                                 <Dots>
                                   <Trans>Collecting</Trans>
@@ -905,7 +880,7 @@ function PositionPageContent() {
                               </ThemedText.DeprecatedMain>
                             ) : (
                               <>
-                                <ThemedText.DeprecatedMain color={theme.white}>
+                                <ThemedText.DeprecatedMain color={theme.white} fontWeight="bold">
                                   <Trans>Collect fees</Trans>
                                 </ThemedText.DeprecatedMain>
                               </>
@@ -913,6 +888,20 @@ function PositionPageContent() {
                           </ResponsiveButtonConfirmed>
                         ) : null}
                       </RowBetween>
+                      {fiatValueOfFees?.greaterThan(new Fraction(1, 100)) ? (
+                        <ThemedText.DeprecatedLargeHeader color={theme.accentSuccess} fontSize="36px" fontWeight={500}>
+                          <Trans>
+                            $
+                            {fiatValueOfFees.toFixed(2, {
+                              groupSeparator: ',',
+                            })}
+                          </Trans>
+                        </ThemedText.DeprecatedLargeHeader>
+                      ) : (
+                        <ThemedText.DeprecatedLargeHeader color={theme.textPrimary} fontSize="36px" fontWeight={500}>
+                          <Trans>$-</Trans>
+                        </ThemedText.DeprecatedLargeHeader>
+                      )}
                     </AutoColumn>
                     <Card padding="12px 16px" $backgroundColor={theme.backgroundLight}>
                       <AutoColumn gap="md">

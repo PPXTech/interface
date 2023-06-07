@@ -224,19 +224,21 @@ export const ButtonEmpty = styled(BaseButton)`
   }
 `
 
+/**
+ *   &:focus {
+    text-decoration: underline;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+ */
 export const ButtonText = styled(BaseButton)`
   padding: 0;
   width: fit-content;
   background: none;
   text-decoration: none;
-  &:focus {
-    text-decoration: underline;
-  }
   &:hover {
-    opacity: 0.9;
-  }
-  &:active {
-    text-decoration: underline;
+    opacity: 0.85;
   }
   &:disabled {
     opacity: 50%;
