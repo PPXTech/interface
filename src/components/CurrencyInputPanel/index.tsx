@@ -26,7 +26,7 @@ import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import { FiatValue } from './FiatValue'
 
 /**
- *  border-radius: ${({ hideInput }) => (hideInput ? '16px' : '20px')};
+ * border-radius: ${({ hideInput }) => (hideInput ? '16px' : '20px')};
  */
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${flexColumnNoWrap};
@@ -53,18 +53,20 @@ const FixedContainer = styled.div`
 `
 
 /**
- *  border-radius: ${({ hideInput }) => (hideInput ? '16px' : '20px')};
+ * border-radius: ${({ hideInput }) => (hideInput ? '16px' : '20px')};
  */
 const Container = styled.div<{ hideInput: boolean; disabled: boolean }>`
-  border: 1px solid ${({ theme }) => theme.backgroundSurface};
+  border: 1px solid ${({ theme }) => theme.backgroundModule};
   background-color: ${({ theme }) => theme.backgroundSurface};
   width: ${({ hideInput }) => (hideInput ? '100%' : 'initial')};
   ${({ theme, hideInput, disabled }) =>
     !disabled &&
     `
-    :focus,
     :hover {
-      border: 1px solid ${hideInput ? ' transparent' : theme.backgroundModule};
+      border: 1px solid ${hideInput ? ' transparent' : theme.stateOverlayHover};
+    }
+    :focus-within {
+      border: 1px solid ${hideInput ? ' transparent' : theme.stateOverlayPressed};
     }
   `}
 `
